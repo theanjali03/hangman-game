@@ -9,7 +9,13 @@ const GameOverModal = () => {
     <div className={`inset fixed z-10 flex h-full w-full items-center justify-center bg-[rgba(0,0,0,0.5)] px-3 backdrop-blur-lg ${showModal ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}  transition-opacity duration-300`}>
       <div className="flex max-w-[420px] flex-grow flex-col items-center rounded-lg border bg-white p-7 text-center shadow-2xl">
         {/* Display appropriate gif based on game outcome */}
-        <img className="mb-5 max-w-32 max-md:w-28" src={`${showModal && (isGameWon ? 'won' : 'lost')}.gif`} alt="Gif" />
+       {showModal && (
+  <img
+    className="mb-5 max-w-32 max-md:w-28"
+    src={isGameWon ? "/won.gif" : "/lost.gif"}
+    alt="Gif"
+  />
+)}
         {/* Display game outcome message */}
         <h4 className="text-2xl font-bold">
           {showModal && (isGameWon ? "Congratulations!" : "Better Luck Next Time!")}
